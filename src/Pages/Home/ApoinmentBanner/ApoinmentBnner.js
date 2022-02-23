@@ -3,7 +3,9 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Doctor from '../../../images/doctor.png';
 import bg from '../../../images/appointment-bg.png';
-import { Button, Typography } from '@mui/material';;
+import { Typography } from '@mui/material';
+import MuiButton from '../../StyeldComponent/MuiButton/MuiButton';
+;
 
 const apoinmentbg = {
   background: `url(${bg})`,
@@ -15,7 +17,7 @@ const apoinmentbg = {
 
 const ApoinmentBanner = () => {
     return (
-        <Box style={apoinmentbg} sx={{ flexGrow: 1 }}>
+        <Box style={apoinmentbg} sx={{ flexGrow: 1, mb: 15}}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <img
@@ -29,7 +31,7 @@ const ApoinmentBanner = () => {
             alignItems: 'center'
             }}>
            <Box sx={{mx: 2}}>
-              <Typography variant='h6' sx={{mb: 5}} style={{color: '#5CE7ED'}}>
+              <Typography variant='h6' sx={{mb: 3}} style={{color: '#5CE7ED'}}>
                   Apoinment
               </Typography>
               
@@ -40,7 +42,7 @@ const ApoinmentBanner = () => {
               <Typography variant='h6' sx={{my: 5}} style={{color: 'white', fontSize: '14px', fontWeight: '300'}}>
               flat design colors, Google's Material design scheme and the classic web safe color palette, all with Hex color codes.
               </Typography>
-              <Button variant='contained' style={{backgroundColor: '#5CE7ED', marginBottom: '10px'}}>Learn More</Button>
+              <MuiButton>Learn More</MuiButton>
            </Box>
            </Grid>
         </Grid>

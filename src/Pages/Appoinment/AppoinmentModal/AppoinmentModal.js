@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import  Button  from '@mui/material/Button';
+import MuiButton from '../../StyeldComponent/MuiButton/MuiButton';
 
 const style = {
   position: 'absolute',
@@ -78,7 +78,7 @@ const AppoinmentModal = ({openBooking, handelBookingClose, booking, date}) => {
                 size="small"
               />
               <br/>
-              <Button type='submit' variant="contained">Submit</Button>
+              <MuiButton type='submit' variant="contained">Submit</MuiButton>
               </form>
             </Typography>
           </Box>

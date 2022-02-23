@@ -17,10 +17,10 @@ const Service = (props) => {
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography variant='h5' component='div'>
+                    <Typography sx={{textAlign: 'center'}} variant='h5' component='div'>
                       {name}
                     </Typography>
-                    <Typography variant="body2" color= 'text.secondary'>
+                    <Typography sx={{textAlign: 'center'}} variant="body2" color= 'text.secondary'>
                     {discription}
                     </Typography>
                 </CardContent>

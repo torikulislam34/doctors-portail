@@ -14,7 +14,7 @@ const Calender = ({date, setDate}) => {
             onChange={(newValue) => {
             setDate(newValue);
             }}
-            renderInput={(params) => <TextField {...params} />}
+            renderInput={(params) => <TextField sx={{color: '#19D3AE'}} {...params} />}
         />
         </LocalizationProvider>
     );
