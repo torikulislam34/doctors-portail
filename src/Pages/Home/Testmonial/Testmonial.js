@@ -55,7 +55,7 @@ const Testmonial = () => {
       <div>
         <Box sx={{ flexGrow: 1, mb:15}}>
         <Container>
-            <Typography variant='h6' style={{color: '#5CE7ED'}}>
+            <Typography variant='h6' style={{color: '#19D3AE'}}>
                 TESTMONIAL
             </Typography>
             <Typography variant='h4' sx={{mb: 8}}>
