@@ -1,4 +1,4 @@
-/*import React, { createContext } from 'react';
+import React, { createContext } from 'react';
 import useFirebase from '../../hooks/useFirebase';
 
 
@@ -14,4 +14,4 @@ const Authprovider = ({children}) => {
     );
 };
 
-export default Authprovider;*/
+export default Authprovider;

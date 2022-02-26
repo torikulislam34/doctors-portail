@@ -9,32 +9,33 @@ import {
   Route,
 } from "react-router-dom";
 import Register from './Pages/Login/Register/Register';
+import Authprovider from './context/authprovider/Authprovider';
 
 function App() {
   return (
     <div className="App">
-    
-     <Router>
-       <Switch>
-          <Route path="/appoinment">
-            <Appoinment></Appoinment>
-          </Route>
-          
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login/>
-          </Route>
-          <Route path="/register">
-            <Register></Register>
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
-     </Router>
-    
+      <Authprovider>
+        <Router>
+          <Switch>
+            <Route path="/appoinment">
+              <Appoinment></Appoinment>
+            </Route>
+            
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </Authprovider>
     </div>
   );
 }

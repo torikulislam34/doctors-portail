@@ -1,5 +1,5 @@
 
-/*import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from '../Pages/Login/Firebase/init';
 
@@ -7,10 +7,12 @@ import initializeAuthentication from '../Pages/Login/Firebase/init';
 initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({})
+  const [isLoding, setIsLoding] = useState(true);
 
   const auth = getAuth();
 
     const registerUser = (email, password) => {
+      setIsLoding (true);
        createUserWithEmailAndPassword(auth, email, password)
        .then((userCredential) => {
         // Signed in 
@@ -21,9 +23,11 @@ const useFirebase = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-      });
+      })
+      .finally(() => setIsLoding(false))
     }
     const loginUser = (email, password) => {
+      setIsLoding (true);
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
@@ -33,7 +37,8 @@ const useFirebase = () => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-        });
+        })
+        .finally(() => setIsLoding(false))
     }
     // observe user state
     useEffect(()=>{
@@ -43,6 +48,7 @@ const useFirebase = () => {
             } else {
               setUser({});
             }
+            setIsLoding(false)
           });
           return () => unSubscribe;
     },[])
@@ -52,14 +58,16 @@ const useFirebase = () => {
             // Sign-out successful.
           }).catch((error) => {
             // An error happened.
-          });
+          })
+          .finally(() => setIsLoding(true))
     }
     return {
         user,
+        isLoding,
         registerUser,
         loginUser,
         logOut
     }
 };
 
-export default useFirebase;*/
+export default useFirebase;
