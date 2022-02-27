@@ -7,6 +7,7 @@ import initializeAuthentication from '../Pages/Login/Firebase/init';
 initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({})
+  const [authError, setAuthError] = useState('')
   const [isLoding, setIsLoding] = useState(true);
 
   const auth = getAuth();
@@ -16,12 +17,11 @@ const useFirebase = () => {
        createUserWithEmailAndPassword(auth, email, password)
        .then((userCredential) => {
         // Signed in 
-        const user = userCredential.user;
+        setAuthError('')
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        setAuthError(error.message);
         // ..
       })
       .finally(() => setIsLoding(false))
@@ -31,12 +31,11 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
-            const user = userCredential.user;
+           setAuthError('')
             // ...
         })
         .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
+          setAuthError(error.message);
         })
         .finally(() => setIsLoding(false))
     }
@@ -63,6 +62,7 @@ const useFirebase = () => {
     }
     return {
         user,
+        authError,
         isLoding,
         registerUser,
         loginUser,

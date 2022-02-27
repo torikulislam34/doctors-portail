@@ -1,4 +1,4 @@
-import { Button, Container, Grid, TextField, Typography, CircularProgress } from '@mui/material';
+import { Button, Container, Grid, TextField, Typography, CircularProgress, Alert } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -6,7 +6,7 @@ import login from '../../../images/login.png'
 
 const Register = () => {
     const [loginData, setLoginData] = useState({})
-    const {registerUser, isLoding} = useAuth()
+    const {authError, user, registerUser, isLoding} = useAuth()
     const handleOnChange = e => {
        const field = e.target.name;
        const value = e.target.value;
@@ -62,6 +62,8 @@ const Register = () => {
                 <Button sx={{width: "75%", mt: 2}} type='submit' variant="contained">Register</Button>
              </form>}
              {isLoding && <CircularProgress />}
+             {user?.email && <Alert severity="success">User created success fully!</Alert>}
+             {authError && <Alert severity="error">{authError}</Alert>}
              <NavLink
               style={{textDecoration: 'none'}} 
               to='/login'>
